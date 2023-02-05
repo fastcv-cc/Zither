@@ -8,6 +8,13 @@ class MainViewModel extends BaseViewModel {
 
   MainViewModel(context) : super(context);
 
+  bool checkAdb() {
+    return ADBUtil.checkADB();
+  }
+
+  void setPath() {
+  }
+
   test(String str, void Function(ProcessResult? result) onResult) async {
     onResult(await ADBUtil.exec([str]));
   }
