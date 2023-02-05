@@ -12,8 +12,8 @@ class ADBUtil {
   static String adbPath = "";
   static const String KEY_ADB_PATH = "key_adb_path";
 
-  static void init(BuildContext context){
-    getAdbPath();
+  static void init() async {
+    adbPath = await getAdbPath();
     shell = Shell(
       environment: Platform.environment,
       throwOnError: false,
@@ -32,12 +32,11 @@ class ADBUtil {
       return adbPath;
     }
     final shared = await SharedPreferences.getInstance();
-    adbPath = shared.getString(KEY_ADB_PATH)??"";
-    return adbPath;
+    return shared.getString(KEY_ADB_PATH) ?? "";
   }
 
   static bool checkADB() {
-    return adbPath.isEmpty;
+    return adbPath.isNotEmpty;
   }
 
   static Future<ProcessResult?> exec(
