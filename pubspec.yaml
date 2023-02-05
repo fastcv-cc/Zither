@@ -49,6 +49,7 @@ dev_dependencies:
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
   process_run: ^0.12.5+2
+  shared_preferences: ^2.0.17
 
 # The following section is specific to Flutter.
 flutter:
