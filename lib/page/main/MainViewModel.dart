@@ -2,6 +2,7 @@
 import 'dart:io';
 
 import 'package:zither/base/BaseViewModel.dart';
+import 'package:zither/utils/ADBHelper.dart';
 import 'package:zither/utils/ADBUtil.dart';
 
 class MainViewModel extends BaseViewModel {
@@ -16,6 +17,6 @@ class MainViewModel extends BaseViewModel {
   }
 
   test(String str, void Function(ProcessResult? result) onResult) async {
-    onResult(await ADBUtil.exec([str]));
+    onResult(await ADBHelper.deviceVersion());
   }
 }
