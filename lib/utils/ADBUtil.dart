@@ -47,7 +47,7 @@ class ADBUtil {
       return null;
     }
     try {
-      return await shell.runExecutableArguments("$adbPath adb", arguments, onProcess: onProcess);
+      return await shell.runExecutableArguments(adbPath, arguments, onProcess: onProcess);
     } catch (e) {
       return null;
     }

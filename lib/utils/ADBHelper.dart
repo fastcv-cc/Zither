@@ -58,4 +58,8 @@ class ADBHelper {
   static Future<ProcessResult?> uninstall(String packageName) async {
     return await ADBUtil.exec(["uninstall", packageName]);
   }
+
+  static Future<ProcessResult?> cpuInfo() async {
+    return await ADBUtil.exec(["shell", "top", "-n" "1"]);
+  }
 }
